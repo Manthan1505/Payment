@@ -52,6 +52,7 @@ namespace PaymentClasses
 
         public bool Find(Int32 PaymentID)
         {
+            //data type of a payment id is int
             //always return true
             return true;
         }
