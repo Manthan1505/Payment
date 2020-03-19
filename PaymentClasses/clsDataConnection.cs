@@ -8,9 +8,22 @@ using System.Threading.Tasks;
 namespace PaymentClasses
 {
     public class clsDataConnection
-    {
+    { 
+        public int Add()
+        {
+            clsDataConnection DB = new clsDataConnection();
 
-        SqlConnection connetionToDB = new SqlConection();
+            DB.AddParameter("@PaymentID", mThisPayment.PaymentID);
+            DB.AddParameter("@CustomerID", mThisPayment.PaymentID);
+            DB.AddParameter("@ReservstionID", mThisPayment.PaymentID);
+            DB.AddParameter("@CustomerBankAccountNumber", mThisPayment.PaymentID);
+            DB.AddParameter("@CustomerBankName", mThisPayment.PaymentID);
+            DB.AddParameter("@CustomerBankSortCode", mThisPayment.PaymentID);
+            DB.AddParameter("@RoomServiceBill", mThisPayment.PaymentID);
+            DB.AddParameter("@AdditionalFine", mThisPayment.PaymentID);
+
+            return DB.Execute("sproc_tblPayment_Insert");
+        }
 
     }
 }

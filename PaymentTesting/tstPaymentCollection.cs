@@ -118,48 +118,115 @@ namespace PaymentTesting
             //assign the data to the property
             AllPayments.PaymentList = TestList;
             //test to see that the two values are the same
-            Assert.AreEqual(AllPayments.PaymentList, TestList.Count);
+            Assert.AreEqual(AllPayments.Count, TestList.Count);
         }
+
+        [TestMethod]
+        public void AddMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsPaymentCollection AllPayments = new clsPaymentCollection();
+            clsPayment TestItem = new clsPayment();
+            //var to store the primary key
+            Int32 Primarykey = 0;
+            //set its properties 
+            TestItem.PaymentID = 1;
+            TestItem.CustomerID = 1;
+            TestItem.ReservationID = 1;
+            TestItem.CustomerBankName = "Barclays";
+            TestItem.CustomerBankAccountNumber = 87654321;
+            TestItem.CustomerBankSortCode = 654321;
+            TestItem.AdditionalFine = 10;
+            TestItem.RoomServiceBill = 15;
+            TestItem.PaymentStatus = "Paid";
+            TestItem.PaymentDate = DateTime.Now.Date;
+            //set ThisPayment to the test data
+            AllPayments.ThisPayment = TestItem;
+            //add the record
+            Primarykey = AllPayments.Add();
+            //set the primaty key of the test data
+            TestItem.PaymentID = Primarykey;
+            //find the record
+            AllPayment.ThisPayment.Find(PrimaryKey);
+            //test to see that the two values are the same
+
+            //add the item to the test list
+            TestList.Add(TestItem);
+            //assign the data to the property
+            AllPayments.PaymentList = TestList;
+            //test to see that the two values are the same
+            Assert.AreEqual(AllPayments.ThisPayment, TestList);
+        }
+
+        [TestMethod]
+        public void DeleteMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsPaymentCollection AllPayments = new clsPaymentCollection();
+            clsPayment TestItem = new clsPayment();
+            //var to store the primary key
+            Int32 Primarykey = 0;
+            //set its properties 
+            TestItem.PaymentID = 1;
+            TestItem.CustomerID = 1;
+            TestItem.ReservationID = 1;
+            TestItem.CustomerBankName = "Barclays";
+            TestItem.CustomerBankAccountNumber = 87654321;
+            TestItem.CustomerBankSortCode = 654321;
+            TestItem.AdditionalFine = 10;
+            TestItem.RoomServiceBill = 15;
+            TestItem.PaymentStatus = "Paid";
+            TestItem.PaymentDate = DateTime.Now.Date;
+            //set ThisPayment to the test data
+            AllPayments.ThisPayment = TestItem;
+            //add the record
+            Primarykey = AllPayments.Add();
+            //set the primaty key of the test data
+            TestItem.PaymentID = Primarykey;
+            //find the record
+            AllPayment.ThisPayment.Find(PrimaryKey);
+            //test to see that the two values are the same
+
+            //add the item to the test list
+            TestList.Add(TestItem);
+            //assign the data to the property
+            AllPayments.PaymentList = TestList;
+            //test to see that the two values are the same
+            Assert.AreEqual(AllPayments.ThisPayment, TestList);
+        }
+
+
 
         public class clsPaymentCollection
         {
             //private data member for the list
             List<clsPayment> mPaymentList = new List<clsPayment>();
 
-            public List<clsPayment> PaymentList { get; internal set; }
-            public int Count { get; internal set; }
-            public object ThisPayment { get; internal set; }
+            public List<clsPayment> PaymentList
+            {
+                get
+                {
+                    return mPaymentList;
+                }
+                set
+                {
+                    mPaymentList = value;
+                }
+            }
+            public int Count
+            {
+                get
+                {
+                    return mPaymentList.Count;
+                }
+                set
+                {
+                }
+            }
+            
         }
 
-        //public property for the customer list
-        public List<clsPayment> PaymentList
-        {
-            get
-            {
-                //return the private data
-                return mPaymentList;
-            }
-            set
-            {
-                //set the private data
-                mPaymentList = value;
-            }
-
-        }
-
-        //public property for count
-        public int count
-        {
-            get
-            {
-                //return the count of the list
-                return mPaymentList.Count;
-            }
-            set
-            {
-                //we shall worry about this later
-            }
-        }
+        
         [TestMethod]
         public void TwoRecordsPresent()
         {

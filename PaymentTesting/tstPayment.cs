@@ -20,26 +20,26 @@ namespace PaymentTesting
         public void PaymentID()
         {
             //creating an instance of the class
-            clsPayment APaymentID = new clsPayment();
+            clsPayment APayment = new clsPayment();
             //creating some test data for customer ID
             Int32 PaymentID = 1;
             //assign the data to the property
-            APaymentID.PaymentID = PaymentID;
+            APayment.PaymentID = PaymentID;
             //test to see that the two values are the same
-            Assert.AreEqual(APaymentID.PaymentID, PaymentID);
+            Assert.AreEqual(APayment.PaymentID, PaymentID);
         }
 
         [TestMethod]
         public void CustomerID()
         {
             //creating an instance of the class
-            clsPayment ACustomerID = new clsPayment();
+            clsPayment APayment = new clsPayment();
             //creating some test data for customer ID
             Int32 CustomerID = 1;
             //assign the data to the property
-            ACustomerID.CustomerID = CustomerID;
+            APayment.CustomerID = CustomerID;
             //test to see that the two values are the same
-            Assert.AreEqual(ACustomerID.CustomerID, CustomerID);
+            Assert.AreEqual(APayment.CustomerID, CustomerID);
         }
 
         [TestMethod]
@@ -63,95 +63,95 @@ namespace PaymentTesting
         public void CustomerBankAccountNumber()
         {
             //creating an instance of the class
-            clsPayment ACustomerBankAccountNumber = new clsPayment();
+            clsPayment APayment = new clsPayment();
             //creating some test data for customer bank account number
             Int32 CustomerBankAccountNumber = 87654321;
             //assign the data to the property
-            ACustomerBankAccountNumber.CustomerBankAccountNumber = CustomerBankAccountNumber;
+            APayment.CustomerBankAccountNumber = CustomerBankAccountNumber;
             //test to see that the two values are the same
-            Assert.AreEqual(ACustomerBankAccountNumber.CustomerBankAccountNumber, CustomerBankAccountNumber);
+            Assert.AreEqual(APayment.CustomerBankAccountNumber, CustomerBankAccountNumber);
         }
 
         [TestMethod]
         public void CustomerBankName()
         {
             //creating an instance of the class
-            clsPayment ACustomerBankName = new clsPayment();
+            clsPayment APayment = new clsPayment();
             //creating some test data for customer Bank Name
             string CustomerBankName = "Barclays";
             //assign the data to the property
-            ACustomerBankName.CustomerBankName = CustomerBankName;
+            APayment.CustomerBankName = CustomerBankName;
             //test to see that the two values are the same
-            Assert.AreEqual(ACustomerBankName.CustomerBankName, CustomerBankName);
+            Assert.AreEqual(APayment.CustomerBankName, CustomerBankName);
         }
 
         [TestMethod]
         public void AdditionalFine()
         {
             //creating an instance of the class
-            clsPayment AAdditionalFine = new clsPayment();
+            clsPayment APayment = new clsPayment();
             //creating some test data for additional fine
             Int32 AdditionalFine = 10;
             //assign the data to the property
-            AAdditionalFine.AdditionalFine = AdditionalFine;
+            APayment.AdditionalFine = AdditionalFine;
             //test to see that the two values are the same
-            Assert.AreEqual(AAdditionalFine.AdditionalFine, AdditionalFine);
+            Assert.AreEqual(APayment.AdditionalFine, AdditionalFine);
         }
 
         [TestMethod]
         public void CustomerBankSortCode()
         {
             //creating an instance of the class
-            clsPayment ACustomerBankSortCode = new clsPayment();
+            clsPayment APayment = new clsPayment();
             //creating some test data for customer Bank sort code
             Int32 CustomerBankSortCode = 654321;
             //assign the data to the property
-            ACustomerBankSortCode.CustomerBankSortCode = CustomerBankSortCode;
+            APayment.CustomerBankSortCode = CustomerBankSortCode;
             //test to see that the two values are the same
-            Assert.AreEqual(ACustomerBankSortCode.CustomerBankSortCode, CustomerBankSortCode);
+            Assert.AreEqual(APayment.CustomerBankSortCode, CustomerBankSortCode);
         }
 
         [TestMethod]
         public void ReservationID()
         {
             //creating an instance of the class
-            clsPayment AReservationID = new clsPayment();
+            clsPayment APayment = new clsPayment();
             //creating some test data for customer ReservationID
             Int32 ReservationID = 1;
             //assign the data to the property
-            AReservationID.ReservationID = ReservationID;
+            APayment.ReservationID = ReservationID;
             //test to see that the two values are the same
-            Assert.AreEqual(AReservationID.ReservationID, ReservationID);
+            Assert.AreEqual(APayment.ReservationID, ReservationID);
         }
 
         [TestMethod]
         public void RoomServiceBill()
         {
             //creating an instance of the class
-            clsPayment ARoomServiceBill = new clsPayment();
+            clsPayment APayment = new clsPayment();
             //creating some test data for customer ReservationID
             Int32 RoomServiceBill = 15;
             //assign the data to the property
-            ARoomServiceBill.RoomServiceBill = RoomServiceBill;
+            APayment.RoomServiceBill = RoomServiceBill;
             //test to see that the two values are the same
-            Assert.AreEqual(ARoomServiceBill.RoomServiceBill, RoomServiceBill);
+            Assert.AreEqual(APayment.RoomServiceBill, RoomServiceBill);
         }
 
         [TestMethod]
         public void PaymentStatus()
         {
             //creating an instance of the class
-            clsPayment APaymentStatus = new clsPayment();
+            clsPayment APayment = new clsPayment();
             //creating some test data for customer ReservationID
             string PaymentStatus = "Paid";
             //assign the data to the property
-            APaymentStatus.PaymentStatus = PaymentStatus;
+            APayment.PaymentStatus = PaymentStatus;
             //test to see that the two values are the same
-            Assert.AreEqual(APaymentStatus.PaymentStatus, PaymentStatus);
+            Assert.AreEqual(APayment.PaymentStatus, PaymentStatus);
         }
 
         [TestMethod]
-        public void DateAddedPropertyOK()
+        public void PaymentDatePropertyOK()
         {
             //create an instance of the class we want to create
             clsPayment APayment = new clsPayment();

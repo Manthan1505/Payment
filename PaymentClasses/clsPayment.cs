@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Ling;
+using System.Linq;
 using System.Text;
 
 
@@ -55,6 +55,8 @@ namespace PaymentClasses
             //always return true
             return true;
         }
+
+        
 
     }
 }
