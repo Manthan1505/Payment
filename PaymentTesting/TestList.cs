@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PaymentCollection;
+using PaymentClasses;
 
 namespace PaymentTesting
 {

@@ -5,7 +5,7 @@ using System.Text;
 
 
 
-namespace PaymentCollection
+namespace PaymentClasses
 {
     public class clsPayment
     {
@@ -31,18 +31,18 @@ namespace PaymentCollection
         public int mPaymentID { get; set; }
         public DateTime mPaymentDate { get; set; }
 
-        public string Valid(Int32 SomePaymentID)
+        public string Valid(Int32 PaymentID)
         {
 
             //string variable to store the error message
             string Error = "";
             //if the name of the customer is more than 50 characters
-            if (SomePaymentID > 50)
+            if (PaymentID > 50)
             {
                 // return an error message
                 Error = "The Payment ID cannot have more than 50 number";
             }
-            if (SomePaymentID == 0)
+            if (PaymentID == 0)
             {
                 //return an error message
                 Error = "The Payment ID may not be blank!";
@@ -88,20 +88,5 @@ namespace PaymentCollection
             return DB.Execute("sproc_tblPayment_Insert");
         }
 
-        public void Delete()
-        {
-
-            //deletes the record pointed to by ThisPayment
-            //connect to the database
-            clsDataConnection DB = new clsDataConnection();
-            //set the parameters for the stored procedure
-            DB.AddParameter("@PaymentID", mThisPayment.PaymentID);
-            DB.Execute("sproc_tblPayment_Delete");
-        }
-
     }
 }
-
-
-//Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"###\";Integrated Security=True;Connect Timeout=30
-//Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"###\";Integrated Security=True;Connect Timeout=30

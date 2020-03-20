@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PaymentCollection;
+using PaymentClasses;
 
 namespace PaymentTesting
 {
@@ -50,9 +50,9 @@ namespace PaymentTesting
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test the method
-            Int32 SomePayment = 1;
+            Int32 PaymentID = 1;
             //invoke the mehtod
-            Error = APayment.Valid(SomePayment);
+            Error = APayment.Valid(PaymentID);
             //test to see that the result is OK i.e there was no error message returned
             Assert.AreEqual(Error, "");
 
@@ -171,9 +171,9 @@ namespace PaymentTesting
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test the method
-            Int32 SomePaymentID = 0;
+            Int32 PaymentID = 0;
             //invoke the method
-            Error = APaymentID.Valid(SomePaymentID);
+            Error = APaymentID.Valid(PaymentID);
             //test to see that the resul is NOT OK i.e there should be an error message
             Assert.AreNotEqual(Error, "");
 
@@ -187,9 +187,9 @@ namespace PaymentTesting
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test the method
-            Int32 SomePaymentID = 0;
+            Int32 PaymentID = 0;
             //invoke the method
-            Error = APaymentID.Valid(SomePaymentID);
+            Error = APaymentID.Valid(PaymentID);
             //test to see that the resul is NOT OK i.e there should be an error message
             Assert.AreNotEqual(Error, "");
 
@@ -203,9 +203,9 @@ namespace PaymentTesting
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test the method
-            Int32 SomePaymentID = 0;
+            Int32 PaymentID = 0;
             //invoke the method
-            Error = APaymentID.Valid(SomePaymentID);
+            Error = APaymentID.Valid(PaymentID);
             //test to see that the resul is NOT OK i.e there should be an error message
             Assert.AreNotEqual(Error, "");
 
@@ -219,9 +219,9 @@ namespace PaymentTesting
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test the method
-            Int32 SomePaymentID = 0;
+            Int32 PaymentID = 0;
             //invoke the method
-            Error = APaymentID.Valid(SomePaymentID);
+            Error = APaymentID.Valid(PaymentID);
             //test to see that the resul is NOT OK i.e there should be an error message
             Assert.AreNotEqual(Error, "");
 
@@ -235,9 +235,9 @@ namespace PaymentTesting
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test the method
-            Int32 SomePaymentID = 0;
+            Int32 PaymentID = 0;
             //invoke the method
-            Error = APaymentID.Valid(SomePaymentID);
+            Error = APaymentID.Valid(PaymentID);
             //test to see that the resul is NOT OK i.e there should be an error message
             Assert.AreNotEqual(Error, "");
 
@@ -251,9 +251,9 @@ namespace PaymentTesting
             //create a string variable to store the result of the validation
             String Error = "";
             //create some test data to test the method
-            Int32 SomePaymentID = 0;
+            Int32 PaymentID = 0;
             //invoke the method
-            Error = APaymentID.Valid(SomePaymentID);
+            Error = APaymentID.Valid(PaymentID);
             //test to see that the resul is NOT OK i.e there should be an error message
             Assert.AreNotEqual(Error, "");
 

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PaymentCollection
+namespace PaymentClasses
 {
     public class clsPaymentCollection
     {
@@ -31,8 +31,6 @@ namespace PaymentCollection
             mThisPayment.PaymentID = 1;
             return mThisPayment.PaymentID;
         }
-
-
     }
 }
 

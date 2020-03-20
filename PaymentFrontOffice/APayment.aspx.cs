@@ -1,20 +1,16 @@
 ﻿using System;
 using PaymentCollection;
-using System.Collections.Generic;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
-public partial class Confirm : System.Web.UI.Page
+public partial class APayment : System.Web.UI.Page
 {
 
     protected void Page_Load(object sender, EventArgs e)
     {  //create a new instance of clspayment
-       // clsPayment APayment = new clsPayment();
+        clsPayment APayment = new clsPayment();
         //get the data from the session object
-       // APayment = (clsPayment)Session["APayment"];
+        APayment = (clsPayment)Session["APayment"];
         //display the house number for this entry
-       // Response.Write(APayment.PaymentID);
+        Response.Write(APayment.PaymentID);
     }
 
     protected void btnConfirm_Click(object sender, EventArgs e)
@@ -41,7 +37,7 @@ public partial class Confirm : System.Web.UI.Page
 
         Session["APayment"] = APayment;
 
-        Response.Write(" APayment.aspx");
+        Response.Write(" APayment.PaymentID");
 
     }
 
