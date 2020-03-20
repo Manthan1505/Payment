@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace PaymentClasses
+namespace PaymentCollection
 {
     public class clsPaymentCollection
     {
@@ -10,9 +10,10 @@ namespace PaymentClasses
         List<clsPayment> mPaymentList = new List<clsPayment>();
         //privete data member thisPayment
         clsPayment mThisPayment = new clsPayment();
+        public int Count { get; set; }
 
 
-       public clsPayment ThisPayment
+        public clsPayment ThisPayment
         {
             get
             {
@@ -30,6 +31,8 @@ namespace PaymentClasses
             mThisPayment.PaymentID = 1;
             return mThisPayment.PaymentID;
         }
+
+
     }
 }
 

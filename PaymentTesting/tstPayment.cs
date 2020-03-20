@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PaymentClasses;
+using PaymentCollection;
 
 namespace PaymentTesting
 {
@@ -286,9 +286,10 @@ namespace PaymentTesting
             //create some test data to use with the method
             Int32 PaymentID = 1;
             //invoke the method
+            APayment.PaymentID = PaymentID;
             Found = APayment.Find(PaymentID);
             //check the PaymentID
-            if (APayment.PaymentID != 50)
+            if (APayment.PaymentID != PaymentID)
             {
                 OK = false;
             }
@@ -309,10 +310,11 @@ namespace PaymentTesting
             Boolean OK = true;
             //create some test data to use with the method
             Int32 CustomerID = 1;
+            APayment.CustomerID = CustomerID;
             //invoke the method
             Found = APayment.Find(CustomerID);
             //check the customerID
-            if (APayment.CustomerID != 50)
+            if (APayment.CustomerID != CustomerID)
             {
                 OK = false;
             }
@@ -331,10 +333,11 @@ namespace PaymentTesting
             Boolean OK = true;
             //create some test data to use with the method
             Int32 CustomerBankAccountNumber = 87654321;
+            APayment.CustomerBankAccountNumber = CustomerBankAccountNumber;
             //invoke the method
             Found = APayment.Find(CustomerBankAccountNumber);
             //check the CustomerBankAccountNumber
-            if (APayment.CustomerBankAccountNumber != 8)
+            if (APayment.CustomerBankAccountNumber != CustomerBankAccountNumber)
             {
                 OK = false;
             }
@@ -353,10 +356,11 @@ namespace PaymentTesting
             Boolean OK = true;
             //create some test data to use with the method
             Int32 CustomerBankSortCode = 654321;
+            APayment.CustomerBankSortCode = CustomerBankSortCode;
             //invoke the method
             Found = APayment.Find(CustomerBankSortCode);
             //check the CustomerBankAccountNumber
-            if (APayment.CustomerBankSortCode != 6)
+            if (APayment.CustomerBankSortCode != CustomerBankSortCode)
             {
                 OK = false;
             }
@@ -375,10 +379,11 @@ namespace PaymentTesting
             Boolean OK = true;
             //create some test data to use with the method
             Int32 ReservationID = 1;
+            APayment.ReservationID = ReservationID;
             //invoke the method
             Found = APayment.Find(ReservationID);
             //check the ReservationID
-            if (APayment.ReservationID != 50)
+            if (APayment.ReservationID != ReservationID)
             {
                 OK = false;
             }
@@ -397,10 +402,11 @@ namespace PaymentTesting
             Boolean OK = true;
             //create some test data to use with the method
             Int32 RoomServiceBill = 1;
+            APayment.RoomServiceBill = RoomServiceBill;
             //invoke the method
             Found = APayment.Find(RoomServiceBill);
             //check the RoomServiceBill
-            if (APayment.RoomServiceBill != 50)
+            if (APayment.RoomServiceBill != RoomServiceBill)
             {
                 OK = false;
             }
@@ -418,11 +424,10 @@ namespace PaymentTesting
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 PaymentID = 1;
-            //invoke the method
-            Found = APayment.Find(PaymentID);
+            DateTime PaymentDate = DateTime.Now;
+            APayment.PaymentDate = PaymentDate;
             //check the property
-            if (APayment.PaymentDate != Convert.ToDateTime(""))
+            if (APayment.PaymentDate != PaymentDate)
             {
                 OK = false;
             }

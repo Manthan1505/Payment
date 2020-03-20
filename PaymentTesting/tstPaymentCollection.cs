@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PaymentClasses;
+using PaymentCollection;
 
 
 namespace PaymentTesting
@@ -86,9 +86,10 @@ namespace PaymentTesting
             TestPayment.PaymentStatus = "Paid";
             TestPayment.PaymentDate = DateTime.Now.Date;
             //assign the data to the property
-            AllPayments.PaymentList = TestPayment;
+            //AllPayments.PaymentList.Add(TestPayment);
+            AllPayments.ThisPayment = TestPayment;
             //test to see that the two values are the same
-            Assert.AreEqual(AllPayments.PaymentList, TestPayment);
+            Assert.AreEqual(AllPayments.ThisPayment, TestPayment);
         }
 
         [TestMethod]
@@ -118,7 +119,7 @@ namespace PaymentTesting
             //assign the data to the property
             AllPayments.PaymentList = TestList;
             //test to see that the two values are the same
-            Assert.AreEqual(AllPayments.Count, TestList.Count);
+            Assert.AreEqual(AllPayments.PaymentList.Count, TestList.Count);
         }
 
         [TestMethod]
@@ -127,6 +128,7 @@ namespace PaymentTesting
             //create an instance of the class we want to create
             clsPaymentCollection AllPayments = new clsPaymentCollection();
             clsPayment TestItem = new clsPayment();
+            List<clsPayment> TestList = new List<clsPayment>();
             //var to store the primary key
             Int32 Primarykey = 0;
             //set its properties 
@@ -147,7 +149,7 @@ namespace PaymentTesting
             //set the primaty key of the test data
             TestItem.PaymentID = Primarykey;
             //find the record
-            AllPayment.ThisPayment.Find(PrimaryKey);
+            AllPayments.ThisPayment.Find(Primarykey);
             //test to see that the two values are the same
 
             //add the item to the test list
@@ -155,7 +157,7 @@ namespace PaymentTesting
             //assign the data to the property
             AllPayments.PaymentList = TestList;
             //test to see that the two values are the same
-            Assert.AreEqual(AllPayments.ThisPayment, TestList);
+            Assert.AreEqual(AllPayments.PaymentList, TestList);
         }
 
         [TestMethod]
@@ -164,8 +166,9 @@ namespace PaymentTesting
             //create an instance of the class we want to create
             clsPaymentCollection AllPayments = new clsPaymentCollection();
             clsPayment TestItem = new clsPayment();
+            List<clsPayment> TestList = new List<clsPayment>();
             //var to store the primary key
-            Int32 Primarykey = 0;
+            int Primarykey = 0;
             //set its properties 
             TestItem.PaymentID = 1;
             TestItem.CustomerID = 1;
@@ -184,7 +187,7 @@ namespace PaymentTesting
             //set the primaty key of the test data
             TestItem.PaymentID = Primarykey;
             //find the record
-            AllPayment.ThisPayment.Find(PrimaryKey);
+            AllPayments.ThisPayment.Find(Primarykey);
             //test to see that the two values are the same
 
             //add the item to the test list
@@ -192,39 +195,39 @@ namespace PaymentTesting
             //assign the data to the property
             AllPayments.PaymentList = TestList;
             //test to see that the two values are the same
-            Assert.AreEqual(AllPayments.ThisPayment, TestList);
+            Assert.AreEqual(AllPayments.PaymentList, TestList);
         }
 
 
 
-        public class clsPaymentCollection
-        {
-            //private data member for the list
-            List<clsPayment> mPaymentList = new List<clsPayment>();
+        //public class clsPaymentCollection
+        //{
+        //    //private data member for the list
+        //    List<clsPayment> mPaymentList = new List<clsPayment>();
 
-            public List<clsPayment> PaymentList
-            {
-                get
-                {
-                    return mPaymentList;
-                }
-                set
-                {
-                    mPaymentList = value;
-                }
-            }
-            public int Count
-            {
-                get
-                {
-                    return mPaymentList.Count;
-                }
-                set
-                {
-                }
-            }
+        //    public List<clsPayment> PaymentList
+        //    {
+        //        get
+        //        {
+        //            return mPaymentList;
+        //        }
+        //        set
+        //        {
+        //            mPaymentList = value;
+        //        }
+        //    }
+        //    public int Count
+        //    {
+        //        get
+        //        {
+        //            return mPaymentList.Count;
+        //        }
+        //        set
+        //        {
+        //        }
+        //    }
             
-        }
+        //}
 
         
         [TestMethod]
@@ -232,16 +235,9 @@ namespace PaymentTesting
         {
             //create an instance of the class we want to create
             clsPaymentCollection AllPayment = new clsPaymentCollection();
-            //test to see that the two values are the same
-            Assert.AreEqual(AllPayment.Count, 2);
-        }
-
-        //constructor for the class
-        public clsPaymentCollection()
-        {
-            //create the items of test data
             clsPayment TestItem = new clsPayment();
-            //set its properties
+            List<clsPayment> TestList = new List<clsPayment>();
+            //set its properties 
             TestItem.PaymentID = 1;
             TestItem.CustomerID = 1;
             TestItem.ReservationID = 1;
@@ -252,26 +248,49 @@ namespace PaymentTesting
             TestItem.RoomServiceBill = 15;
             TestItem.PaymentStatus = "Paid";
             TestItem.PaymentDate = DateTime.Now.Date;
-            //add the item to the test list
             TestList.Add(TestItem);
-            //assign the data to the property
-            mPaymentList.Add(TestItem);
-            //re initialise the object for some new data
-            TestItem = new clsPayment();
-            //set its properties
-            TestItem.PaymentID = 2;
-            TestItem.CustomerID = 2;
-            TestItem.ReservationID = 2;
-            TestItem.CustomerBankName = "Lyods";
-            TestItem.CustomerBankAccountNumber = 86454321;
-            TestItem.CustomerBankSortCode = 564321;
-            TestItem.AdditionalFine = 10;
-            TestItem.RoomServiceBill = 15;
-            TestItem.PaymentStatus = "Paid";
-            TestItem.PaymentDate = DateTime.Now.Date;
-            //add the item to the test list
-            mPaymentList.Add(TestItem);
+            TestList.Add(TestItem);
+            AllPayment.PaymentList = TestList;
+            //test to see that the two values are the same
+            Assert.AreEqual(AllPayment.PaymentList.Count, 2);
         }
+
+        //constructor for the class
+        //public clsPaymentCollection()
+        //{
+        //    //create the items of test data
+        //    clsPayment TestItem = new clsPayment();
+        //    //set its properties
+        //    TestItem.PaymentID = 1;
+        //    TestItem.CustomerID = 1;
+        //    TestItem.ReservationID = 1;
+        //    TestItem.CustomerBankName = "Barclays";
+        //    TestItem.CustomerBankAccountNumber = 87654321;
+        //    TestItem.CustomerBankSortCode = 654321;
+        //    TestItem.AdditionalFine = 10;
+        //    TestItem.RoomServiceBill = 15;
+        //    TestItem.PaymentStatus = "Paid";
+        //    TestItem.PaymentDate = DateTime.Now.Date;
+        //    //add the item to the test list
+        //    TestList.Add(TestItem);
+        //    //assign the data to the property
+        //    mPaymentList.Add(TestItem);
+        //    //re initialise the object for some new data
+        //    TestItem = new clsPayment();
+        //    //set its properties
+        //    TestItem.PaymentID = 2;
+        //    TestItem.CustomerID = 2;
+        //    TestItem.ReservationID = 2;
+        //    TestItem.CustomerBankName = "Lyods";
+        //    TestItem.CustomerBankAccountNumber = 86454321;
+        //    TestItem.CustomerBankSortCode = 564321;
+        //    TestItem.AdditionalFine = 10;
+        //    TestItem.RoomServiceBill = 15;
+        //    TestItem.PaymentStatus = "Paid";
+        //    TestItem.PaymentDate = DateTime.Now.Date;
+        //    //add the item to the test list
+        //    mPaymentList.Add(TestItem);
+        //}
     }
 }
     

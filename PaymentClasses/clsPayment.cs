@@ -5,7 +5,7 @@ using System.Text;
 
 
 
-namespace PaymentClasses
+namespace PaymentCollection
 {
     public class clsPayment
     {
@@ -17,7 +17,7 @@ namespace PaymentClasses
         public int ReservationID { get; set; }
         public int RoomServiceBill { get; set; }
         public string PaymentStatus { get; set; }
-        public int PaymentID { get; set; }
+        //public int PaymentID { get; set; }
         public DateTime PaymentDate { get; set; }
 
         public int mCustomerID { get; set; }
@@ -50,14 +50,58 @@ namespace PaymentClasses
             return Error;
         }
 
-        public bool Find(Int32 PaymentID)
+        public bool Find(int PaymentID)
         {
-            //data type of a payment id is int
+            mPaymentID = 1;
             //always return true
             return true;
         }
-
         
+        public int PaymentID
+        { 
+            get
+            {
+                return mPaymentID;
+            }
+            set
+            {
+                mPaymentID = value;
+            }
+        }
+        
+        public int Add()
+        {
+            //add a new record to the database based on the values of ThisPayment
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@PaymentID", mPaymentID);
+            DB.AddParameter("@CustomerID", mCustomerID);
+            DB.AddParameter("@ReservationID", mReservationID);
+            DB.AddParameter("@CustomerAccountNo", mCustomerBankAccountNumber);
+            DB.AddParameter("@CustomerBankName", mCustomerBankName);
+            DB.AddParameter("@CustomerSortCode", mCustomerBankSortCode);
+            DB.AddParameter("@AdditionalFine", mAdditionalFine);
+            DB.AddParameter("@RoomServiceBill", mRoomServiceBill);
+            DB.AddParameter("@PaymentDate", mPaymentDate);
+            //execute the query returning the primary key value
+            return DB.Execute("sproc_tblPayment_Insert");
+        }
+
+        public void Delete()
+        {
+
+            //deletes the record pointed to by ThisPayment
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the parameters for the stored procedure
+            DB.AddParameter("@PaymentID", mThisPayment.PaymentID);
+            DB.Execute("sproc_tblPayment_Delete");
+        }
 
     }
 }
+
+
+//Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"###\";Integrated Security=True;Connect Timeout=30
+//Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"###\";Integrated Security=True;Connect Timeout=30
