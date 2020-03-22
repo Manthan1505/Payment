@@ -8,6 +8,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PaymentFrontOffice", "PaymentFrontOffice\", "{D2FC6DA9-EE6A-4A7C-9A10-AFF320245DC0}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{f1f0ed94-6de9-4357-a3f8-aefa2be7a682}|PaymentClasses.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_5576"
 		Debug.AspNetCompiler.PhysicalPath = "PaymentFrontOffice\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_5576\"
